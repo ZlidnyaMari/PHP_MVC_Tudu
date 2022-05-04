@@ -1,7 +1,12 @@
 <?php
+while (true) {
+    $question = (int)readline("В каком году произошло крещение Руси? Вариаты ответа: 810, 988, 740. ");
 
-$name = readline('Как Ваше имя?');
-
-$age = readline('Напишите сколько Вам лет.');
-
-echo "Вас зовут $name, Вам $age лет";
+    if ($question === 810 || $question === 740) {
+        echo "Это неверный вариант ответа. ";
+        break;
+    } elseif ($question === 988) {
+        echo "Поздравляю Вы ответили правильно. ";
+        break;
+    };
+};
