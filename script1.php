@@ -1,12 +1,11 @@
 <?php
-while (true) {
-    $question = (int)readline("В каком году произошло крещение Руси? Вариаты ответа: 810, 988, 740. ");
+$arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$arr2 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+$rezult = [];
 
-    if ($question === 810 || $question === 740) {
-        echo "Это неверный вариант ответа. ";
-        break;
-    } elseif ($question === 988) {
-        echo "Поздравляю Вы ответили правильно. ";
-        break;
-    };
+for ($i = 0; $i < count($arr1); $i++) {
+    $rezult[] = $arr1[$i] * $arr2[$i];
 };
+
+print_r($rezult);
+ 
