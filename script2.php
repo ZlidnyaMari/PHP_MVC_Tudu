@@ -15,5 +15,5 @@ for ($i = 0; count($random_congratulation) < 3; $i++) {
 //print_r($random_congratulation);
 $string_congratulation = implode(",", $random_congratulation);
 
-echo( " $name, от всего сердца поздравляю тебя с Днем Рождения, 
-   желаю $string_congratulation.");
+echo" $name, от всего сердца поздравляю тебя с Днем Рождения, 
+   желаю $string_congratulation.";

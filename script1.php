@@ -5,7 +5,7 @@ $rezult = [];
 
 for ($i = 0; $i < count($arr1); $i++) {
     $rezult[] = $arr1[$i] * $arr2[$i];
-};
+}
 
 print_r($rezult);
  

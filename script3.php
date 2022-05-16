@@ -19,13 +19,13 @@ $forDeduction = [];
 $minGrade = 3;
 
 foreach ($students as $key => $studentList) {
-    foreach ($studentList as $index => $value) {
         $average[$key] = round(array_sum($studentList) / count($studentList), 2); // узнаем среднюю оценку
         $maxGroup = array_keys($average, max($average))[0];
         $maxGrade = max($average);
 
+    foreach ($studentList as $index => $value) {
         if ($value < $minGrade) $forDeduction[$index] = $key; // студенты на отчисление
-    };
-};
+    }
+}
     print_r($forDeduction);
     echo "Самая лучшая успеваемость у группы $maxGroup. Средняя оценка по успеваемости $maxGrade.";
