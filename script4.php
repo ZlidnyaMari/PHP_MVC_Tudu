@@ -1,18 +1,6 @@
 <?php
-while (true) {
-    $apple = (int)readline("Сколько яблок вам нужно? (Для выхода из программы нажмите ноль). ");
+$arr =  ["str", 2, 3, 4, 5, 0, 0, 0, 0, 0];
 
-    if ($apple == 1){
-        $endOfWord = "о";
-    } elseif ($apple > 1 && $apple < 5) {
-        $endOfWord = 'a';
-    } elseif ($apple >= 5) {
-        $endOfWord = "";   
-    } elseif ($apple === 0) {
-        break;
-    }
-
-    echo "$apple яблок$endOfWord \n";   
-}
-
+$newArr = array_diff($arr, array(0));
+print_r(array_merge(...array_map(null, $newArr, $newArr)));
 

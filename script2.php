@@ -1,38 +1,19 @@
 <?php
-$name = readline('Как Ваше имя? ');
-$numberTask = (int)readline("$name какое количество задач запланированно на сегодня? ");
-$arrTask = [];
-$result_time = 0;
+$wishes = ['счастья', 'здоровья', 'благополучия', 'воображения', 'терпения'];
+$epithets = ['бесконечного', 'постоянного', 'невероятного', 'космического'];
+$random_congratulation = [];
 
-if ($numberTask === 0) echo "Вы ввели неверное число, или у вас действительно нет задач на сегодня? ";
+$name = readline("Назовите ваше имя. ");
 
-for ($i = 1; $i <= $numberTask; $i++) {
-       $task = readline("$name напишите запланированную задачу. ");
-       $time = readline("Сколько часов она займет. ");
+for ($i = 0; count($random_congratulation) < 3; $i++) {
+    $randWishes = array_rand($wishes, 1);
+    $randEpithets = array_rand($epithets, 1);
 
-       $arrTask[$task] = $time; 
-       $result_time += $time;
-
+    $random_congratulation[] = $epithets[$randEpithets].' '.$wishes[$randWishes];
 }
 
-echo "$name, сегодня у Вас запланированно $numberTask задач(и) на день \n
-колличество общего затраченного времени: $result_time ч. \n";
+//print_r($random_congratulation);
+$string_congratulation = implode(",", $random_congratulation);
 
-foreach ($arrTask as $key => $value) {
-        echo "$key займет $value ч \n";
-}
-
-// Вариант задачи  с конкатинацией
-// $str = "";
-
-// for ($i = 1; $i <= $numberTask; $i++) {
-//        $task = readline("$name напишите запланированную задачу. "); 
-//        $time = readline("Сколько часов она займет. ");
-
-//        $str = $str . $task;
-//        $result_time += $time;
-// }       
-
-// echo "$name, сегодня у Вас запланированно $numberTask задач(и) на день \n
-// $str \n
-// колличество общего затраченного времени: $result_time ч. \n";
+echo" $name, от всего сердца поздравляю тебя с Днем Рождения, 
+   желаю $string_congratulation.";
