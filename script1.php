@@ -1,11 +1,6 @@
 <?php
-$arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-$arr2 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-$rezult = [];
+$foo = fn($n) => (((bool)($n & 1)) === true) ? 'нечетное' : 'четное';
 
-for ($i = 0; $i < count($arr1); $i++) {
-    $rezult[] = $arr1[$i] * $arr2[$i];
-}
-
-print_r($rezult);
- 
+$arr = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+$arr2 = array_map($foo, $arr);
+print_r($arr2);

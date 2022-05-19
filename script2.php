@@ -1,19 +1,11 @@
 <?php
-$wishes = ['счастья', 'здоровья', 'благополучия', 'воображения', 'терпения'];
-$epithets = ['бесконечного', 'постоянного', 'невероятного', 'космического'];
-$random_congratulation = [];
+$arr = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
 
-$name = readline("Назовите ваше имя. ");
-
-for ($i = 0; count($random_congratulation) < 3; $i++) {
-    $randWishes = array_rand($wishes, 1);
-    $randEpithets = array_rand($epithets, 1);
-
-    $random_congratulation[] = $epithets[$randEpithets].' '.$wishes[$randWishes];
+function foo (array $n, array $x): array {
+    array_push($x, max($n), min($n), (array_sum($n) / count($n)));
+    return $x;
 }
 
-//print_r($random_congratulation);
-$string_congratulation = implode(",", $random_congratulation);
+print_r(foo($arr, []));
 
-echo" $name, от всего сердца поздравляю тебя с Днем Рождения, 
-   желаю $string_congratulation.";
+
