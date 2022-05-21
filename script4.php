@@ -1,6 +1,21 @@
 <?php
-$arr =  ["str", 2, 3, 4, 5, 0, 0, 0, 0, 0];
+function add ($x, $y) {
+    return $x + $y;
+}
+function sub ($x, $y) {
+    return $x - $y;
+}
+function mult ($x, $y) {
+    $x * $y;
+}
+function div ($x, $y) {
+    return ($y == 0) ? null : $x / $y;
+}
 
-$newArr = array_diff($arr, array(0));
-print_r(array_merge(...array_map(null, $newArr, $newArr)));
+
+function mathOperation($x, $y, $operation) {
+    $func = $operation;
+    return $func($x, $y);
+}
+var_dump(mathOperation(2, 0, 'div'));
 

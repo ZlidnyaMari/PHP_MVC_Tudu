@@ -1,31 +1,60 @@
 <?php
-$students = [
-    'ИТ20' => [
-        'Иванов Иван' => 5,
-        'Кириллов Кирилл' => 3,
-        'Сергеев Сергей' => 4,
-        'Данилов Данил' => 2
+$box = [
+    [
+        0 => 'Тетрадь',
+        1 => 'Книга',
+        2 => 'Настольная игра',
+        3 => [
+            'Настольная игра',
+            'Настольная игра',
+        ],
+        4 => [
+            [
+                'Ноутбук',
+                'Зарядное устройство'
+            ],
+            [
+                'Компьютерная мышь',
+                'Набор проводов',
+                [
+                    'Фотография',
+                    'Картина'
+                ]
+            ],
+            [
+                'Инструкция',
+                [
+                    'Ключ'
+                ]
+            ]
+        ]
     ],
-    'БАП20' => [
-        'Антонов Антон' => 4,
-        'Андреев Андрей' => 1,
-        'Юрьев Юрий' => 2,
+    [
+        0 => 'Пакет кошачьего корма',
+        1 => [
+            'Музыкальный плеер',
+            'Книга'
+        ]
     ]
  ];
 
-$average = [];
-$studentAscending = [];
-$forDeduction = [];
-$minGrade = 3;
 
-foreach ($students as $key => $studentList) {
-        $average[$key] = round(array_sum($studentList) / count($studentList), 2); // узнаем среднюю оценку
-        $maxGroup = array_keys($average, max($average))[0];
-        $maxGrade = max($average);
+$key = 'Книга';
 
-    foreach ($studentList as $index => $value) {
-        if ($value < $minGrade) $forDeduction[$index] = $key; // студенты на отчисление
+function foo ($box, $key) {
+   static $rezalt = [];
+        foreach ($box as $value) {
+            if (is_array($value)) {
+                foo($value, $key);
+        } else {
+            $rezalt[] = $value;
+        }
     }
+
+    foreach ($rezalt as $item) {
+        return ($item === $key) ? "true" : "false";
+    }    
 }
-    print_r($forDeduction);
-    echo "Самая лучшая успеваемость у группы $maxGroup. Средняя оценка по успеваемости $maxGrade.";
+var_dump(foo($box, $key));     
+
+// код работает неверно и я не понимаю как исправить, может я key неправильно передаю. 
