@@ -17,3 +17,5 @@ $controller = $_GET['controller'] ?? 'index';
 
 $routes = require 'routes.php';
 require_once $routes[$controller];
+
+// php -S locolhost:3000 

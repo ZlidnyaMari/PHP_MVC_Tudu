@@ -17,7 +17,7 @@ if ($_SESSION['username'] === null) {
 $taskProvider = new TaskProvider();
 if (isset($_GET['action']) && $_GET['action'] === 'add') {
     $taskProvider->addTask(new Task($_POST['task']));
-    header("Location: /controller=task");
+    header("Location: /?controller=task");
     die();
 }    
 
